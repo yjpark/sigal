@@ -62,7 +62,8 @@
           {% for image in images %}
           <a href="{{ image.file }}">
             <img src="{{ image.thumb }}" alt="{{ image.file }}"
-                 data-title="{{ image.file }}" /></a>
+                 data-title="{{ image.file }}"
+                 {% if 'big' in image %} data-big="{{ image.big }}"{% endif %} /></a>
           {% endfor %}
         </div>
         {% endif %}
@@ -91,6 +92,11 @@
         transition: "fade"
     });
     Galleria.run("#gallery");
+
+    // do something when someone clicks an element with the ID 'mylink'
+    $('#fullscreen').click(function() {
+        $('#gallery').data('galleria').enterFullscreen();
+    });
     </script>
     {% endif %}
     {% include 'analytics.html' %}
