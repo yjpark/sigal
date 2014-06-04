@@ -569,5 +569,6 @@ def worker(args):
     except KeyboardInterrupt:
         return 'KeyboardException'
     except Exception as e:
-        self.logger.error('Failed to process file: %s -> %s', args, e)
+        logger = logging.getLogger(__name__)
+        logger.error('Failed to process file: %s -> %s', args, e)
         return 'Exception: %s' % e
