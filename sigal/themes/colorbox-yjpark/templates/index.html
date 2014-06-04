@@ -42,6 +42,7 @@
         <header>
           {% if album.breadcrumb %}
           <h2>
+            <a href="{{ album.index_url }}">{{ index_title }}</a> » 
             {% for url, title in album.breadcrumb %}
             <a href="{{ url }}">{{ title }}</a>{% if not loop.last %} » {% endif %}
             {% endfor -%}
